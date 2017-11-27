@@ -42,8 +42,9 @@ https://github.com/settings/tokens/new 打开这个网址生成一个新的令�
 
 在 window 中，打开powershell ,输入如下:
 
+```
 [Environment]::SetEnvironmentVariable("GH_TOKEN","<刚刚生成生成的令牌ID>","User")
-
+```
 
 ### 第三步
 
