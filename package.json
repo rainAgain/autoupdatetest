@@ -1,37 +1,44 @@
 {
   "name": "testauto",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A Electron application test about auto-update",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder ./"
+    "build": "electron-builder ./",
+    "publish": "build --win -p always"
   },
   "build": {
-    "appId":"com.electron.testauto",
+    "appId": "com.github.rainagain.testauto",
     "productName": "testauto",
-    "files":[
-        "app/**/*",
-        "main.js",
-        "node_modules",
-        "package.json"
+    "files": [
+      "app/**/*",
+      "main.js",
+      "./node_modules",
+      "package.json"
     ],
     "win": {
-        "target": [
-            "nsis"
-        ]
+      "target": [
+        "nsis"
+      ]
     },
     "nsis": {
-        "oneClick": "false",
-        "allowToChangeInstallationDirectory": "true"
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "menuCategory": true, //是否要创建子菜单开始菜单快捷方式和程序文件目录
+      "installerIcon": "./res/icon.ico",
+      "uninstallerIcon": "./res/icon.ico"
     },
-    "publish": [{
-         "provider": "github",
-         "owner": "rainagain",
-         "repo": "autoupdatetest"
-     }],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "rainagain",
+        "repo": "autoupdatetest"
+      }
+    ]
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/rainAgain/autoupdatetest",
   "keywords": [
     "Electron",
     "quick",
@@ -44,5 +51,9 @@
   "devDependencies": {
     "electron": "~1.7.8",
     "electron-builder": "^19.45.5"
+  },
+  "dependencies": {
+    "electron-log": "^2.2.11",
+    "electron-updater": "^2.16.1"
   }
 }
