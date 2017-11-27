@@ -31,7 +31,13 @@ function createWindow () {
 
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600})
+  const urlload = url.format({
+    pathname: path.join(__dirname, 'app/index.html'),
+    protocol: 'file:',
+    slashes: true
+  });
 
+  console.log(urlload)
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'app/index.html'),
@@ -106,6 +112,6 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-app.on('ready', function()  {
-  autoUpdater.checkForUpdatesAndNotify();
-});
+// app.on('ready', function()  {
+//   autoUpdater.checkForUpdatesAndNotify();
+// });

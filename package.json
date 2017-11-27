@@ -11,12 +11,7 @@
   "build": {
     "appId": "com.github.rainagain.testauto",
     "productName": "testauto",
-    "files": [
-      "app/**/*",
-      "main.js",
-      "./node_modules",
-      "package.json"
-    ],
+
     "win": {
       "target": [
         "nsis"
@@ -26,10 +21,16 @@
       "oneClick": false,
       "allowElevation": true,
       "allowToChangeInstallationDirectory": true,
-      "menuCategory": true, //是否要创建子菜单开始菜单快捷方式和程序文件目录
+      "menuCategory": true,
       "installerIcon": "./res/icon.ico",
       "uninstallerIcon": "./res/icon.ico"
     },
+    "asar": true,
+    "asarUnpack": [
+        "app/test",
+        "gulpfile.js",
+        "project"
+    ],
     "publish": [
       {
         "provider": "github",
