@@ -138,3 +138,5 @@ npm run build
 }
 
 ```
+
+[过滤配置](https://www.electron.build/file-patterns)
